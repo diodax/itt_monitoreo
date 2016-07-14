@@ -8,15 +8,21 @@
 module.exports = {
 
   attributes: {
+    // Datos de la cuenta de usuario
     username: {
-      type: 'string'
+      type: 'string',
+      unique: true,
+      required: true
     },
     password: {
-      type: 'string'
+      type: 'string',
+      required: true
     },
     roles: {
       collection: 'role'
     },
+
+    // Datos personales del Doctor
     firstName: {
       type: 'string',
       defaultsTo: ''
@@ -25,5 +31,12 @@ module.exports = {
       type: 'string',
       defaultsTo: ''
     },
+
+    // Referencia a los pacientes de un Doctor
+    patients: {
+      collection: 'patient',
+      via: 'doctor'
+    }
+
   }
 };

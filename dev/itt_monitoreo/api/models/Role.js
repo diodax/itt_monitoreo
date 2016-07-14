@@ -8,7 +8,10 @@
 module.exports = {
 
   attributes: {
-
+    // Nombre del rol
+    description: {
+      type: 'string',
+      unique: true
+    }
   }
 };
-

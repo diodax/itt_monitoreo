@@ -1,0 +1,42 @@
+# Instalar NFS para la carpeta compartida con la maquina virtual
+# Visto en: https://github.com/eadmundo/openresty-pypi/issues/2
+sudo apt-get install nfs-kernel-server
+
+sudo dpkg -i vagrant_1.8.4_x86_64.deb
+sudo apt-get install -f
+
+# En la terminal de la carpeta donde se encuentra el vagrantfile, correr:
+vagrant up
+vagrant ssh
+
+
+fuck this
+----
+
+sudo apt-get update
+apt-get install build-essential libssl-dev
+
+# Uninstall Node, and install NVM con user permissions
+# Visto en: stackoverflow.com/questions/16151018/npm-throws-error-without-sudo
+
+sudo chown -R $(whoami) ~/.npm
+sudo npm ls -gp --depth=0 | awk -F/ '/node_modules/ && !/\/npm$/ {print $NF}' | xargs npm -g rm
+
+touch ~/.bash_profile
+
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
+source ~/.profile
+
+------
+
+
+
+
+nvm use system
+npm uninstall -g node-inspector pm2 sails
+
+
+#
+
+sails lift
+

@@ -26,10 +26,15 @@ module.exports = {
             }
             req.logIn(user, function(err) {
                 if (err) res.send(err);
+                // TODO: Redirect to the corresponding Dashboard based on the roles
+                //return res.redirect('/' + user.role.dashboard);
+
+                //
                 return res.send({
                     message: info.message,
                     user: user
                 });
+                //
             });
 
         })(req, res);
@@ -40,4 +45,3 @@ module.exports = {
         res.redirect('/');
     }
 };
-

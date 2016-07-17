@@ -10,6 +10,11 @@
 module.exports = {
 
   attributes: {
+    username: {
+      type: 'string',
+      unique: true,
+      required: true
+    },
   	email: {
   		type: 'email',
   		required: true,
@@ -20,6 +25,10 @@ module.exports = {
   		minLength: 6,
   		required: true
   	},
+    roles: {
+      collection: 'role'
+    },
+    // Evita que se muestre el password cuando se trabaja con el objeto
   	toJSON: function() {
   		var obj = this.toObject();
   		delete obj.password;
@@ -40,4 +49,3 @@ module.exports = {
         });
     }
 };
-

@@ -8,18 +8,9 @@
 module.exports = {
 
   attributes: {
-    // Datos de la cuenta de usuario
-    username: {
-      type: 'string',
-      unique: true,
-      required: true
-    },
-    password: {
-      type: 'string',
-      required: true
-    },
-    roles: {
-      collection: 'role'
+    // Referencia al User que contiene la cuenta
+    user: {
+      model: 'user'
     },
 
     // Datos personales del Doctor

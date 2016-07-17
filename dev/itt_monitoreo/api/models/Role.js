@@ -12,6 +12,10 @@ module.exports = {
     description: {
       type: 'string',
       unique: true
+    },
+    // Determina la ruta del dashboard asociada con ese rol
+    dashboard: {
+      type: 'string'
     }
   }
 };

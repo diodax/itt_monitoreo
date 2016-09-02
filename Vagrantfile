@@ -11,7 +11,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "hashicorp/precise64"
+  # config.vm.box = "hashicorp/precise64"
+  # Switched boxes due to this bug: https://github.com/mitchellh/vagrant/issues/6426#issuecomment-234977448
+  config.vm.box = "ubuntu/precise64"
 
   # Allows the creation of symlinks for nvm
   # http://stackoverflow.com/questions/27122392/installing-nvm-nodejs-emberjs-inside-a-vagrant-box
@@ -55,9 +57,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
-  config.vm.provision "puppet" do |puppet|
+  config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "puppet/manifests"
     puppet.manifest_file  = "default.pp"
     puppet.module_path = "puppet/modules"
+    puppet.options = ['--verbose']
   end
 end
